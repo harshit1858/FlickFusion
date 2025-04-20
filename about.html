@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About - FlickFusion</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&amp;display=swap">
+        <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #000, #1a1a1a);
+            --accent: #8a2be2;
+            --accent-hover: #9932cc;
+            --text-primary: #fff;
+            --text-secondary: #c0c0c0;
+            --card-bg: rgba(0, 0, 0, 0.85);
+            --glass-effect: rgba(255, 255, 255, 0.05);
+            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --hover-transform: translateY(-8px);
+        }
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            font-family: "Inter", sans-serif;
+            line-height: 1.6;
+          }
+          header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(0, 0, 0, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          }
+          .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--accent), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+          }
+          .nav-link:hover {
+            background: var(--accent);
+          }
+          .container {
+            max-width: 1200px;
+            margin: 100px auto 40px;
+            padding: 0 20px;
+          }
+          .hero-section {
+            text-align: center;
+            margin-bottom: 4rem;
+          }
+          .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent), #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          .hero-section p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+          }
+          .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+          }
+          .section h2 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+          }
+          .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+          }
+          .tech-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+          }
+          .tech-item:hover {
+            transform: translateY(-5px);
+          }
+          .tech-item h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+          }
+          .tech-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+          }
+          .features-list {
+            list-style: none;
+          }
+          .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+          }
+          .features-list li:hover {
+            transform: translateX(10px);
+          }
+          .features-list li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: bold;
+          }
+          .credits {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            margin-top: 2rem;
+          }
+          .creator-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+          }
+          .creator-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+          }
+          .creator-details h3 {
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+          }
+          .creator-details p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+          }
+          .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+          }
+          .social-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+          }
+          .social-link:hover {
+            background: var(--accent);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+          }
+          .social-link img {
+            width: 20px;
+            height: 20px;
+          }
+          @media (max-width: 768px) {
+            header {
+              padding: 1rem;
+            }
+            header .logo {
+              font-size: 1.5rem;
+            }
+            header nav {
+              gap: 0.5rem;
+            }
+            header nav a {
+              padding: 0.5rem 1rem;
+              font-size: 0.9rem;
+            }
+            .container {
+              padding: 0 15px;
+              margin-top: 80px;
+            }
+            .hero-section h1 {
+              font-size: 2rem;
+            }
+            .hero-section p {
+              font-size: 1rem;
+            }
+            .section {
+              padding: 1.5rem;
+            }
+            .tech-stack {
+              grid-template-columns: 1fr;
+            }
+            .credits {
+              padding: 1.5rem;
+            }
+            .creator-info {
+              flex-direction: column;
+            }
+            .social-links {
+              flex-direction: column;
+              align-items: center;
+            }
+          }
+        </style>
+      </head>
+</head>
+<body>
+    <header>
+      <div class="logo">FlickFusion</div>
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="hero-section">
+        <h1>About FlickFusion</h1>
+        <p>A sleek and responsive movie/TV streaming platform where users can search for movies, view details, and stream content. Built with modern design principles for an immersive user experience.</p>
+      </div>
+
+      <div class="section">
+        <h2>Tech Stack</h2>
+        <div class="tech-stack">
+          <div class="tech-item">
+            <h3>Frontend</h3>
+            <p>HTML, CSS (Glass UI), JavaScript (Vanilla)</p>
+          </div>
+          <div class="tech-item">
+            <h3>API Integration</h3>
+            <p>OMDB API for movie data</p>
+          </div>
+          <div class="tech-item">
+            <h3>Video Streaming</h3>
+            <p>Vidsrc Embeds</p>
+          </div>
+          <div class="tech-item">
+            <h3>Hosting</h3>
+            <p>GitHub Pages</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Features</h2>
+        <ul class="features-list">
+          <li>Movie/TV Show Search via OMDB API</li>
+          <li>Stream Movies/TV Series with embedded player</li>
+          <li>Profile Management – Change avatar &amp; display name</li>
+          <li>Glassmorphism UI – Responsive for mobile &amp; web</li>
+          <li>Toast Notifications – Smooth UX feedback</li>
+        </ul>
+      </div>
+
+
+        <div class="footer-content">
+            <div class="creator-info">
+                <div class="creator-avatar">H</div>
+                <div class="creator-details">
+                    <h3>Harshit Suthar</h3>
+                    <p>Creator &amp; Developer</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://instagram.com/harshiitt.18" target="_blank" rel="noopener" class="social-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+                    @harshiitt.18
+                </a>
+                <a href="https://www.linkedin.com/in/harshit-suthar-b171ba35b/" target="_blank" rel="noopener"
+                    class="social-link">
+                    <img src="https://static.vecteezy.com/system/resources/previews/016/716/470/non_2x/linkedin-icon-free-png.png"
+                        alt="Instagram">
+                    @Linkedin
+                </a>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; color: var(--text-secondary);">
+          © 2025 FlickFusion. All rights reserved.
+      </p>
+  
+ 
+</body>
+</html>

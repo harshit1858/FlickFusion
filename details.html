@@ -1,0 +1,1349 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rich Dad, Poor Dad with Robert Kiyosaki - Syncrin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500&amp;display=swap">
+    <style>
+      :root {
+        --bg-gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        --accent: #8a2be2;
+        --accent-hover: #9932cc;
+        --text-primary: #ffffff;
+        --text-secondary: #c0c0c0;
+        --card-bg: rgba(0, 0, 0, 0.9);
+        --glass-effect: rgba(255, 255, 255, 0.05);
+        --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--bg-gradient);
+        color: var(--text-primary);
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+      }
+      .flex-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      /* Fixed Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 5%;
+        background: rgba(0, 0, 0, 0.95);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      header .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--accent), #ff6b6b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      header nav {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      header nav a {
+        color: var(--text-primary);
+        text-decoration: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+      }
+      header nav a:hover {
+        background: var(--accent);
+      }
+      .back-link {
+        color: var(--text-primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .back-link:hover {
+        background: var(--accent);
+      }
+      .container {
+        flex: 1;
+        width: 100%;
+        max-width: 1400px;
+        margin: 100px auto 0;
+        padding: 0 20px;
+      }
+      .hero-section {
+        position: relative;
+        height: 80vh;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-end;
+        padding: 0 5%;
+        margin-bottom: 2rem;
+        transition: all 0.5s ease;
+      }
+      .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, 
+          rgba(0,0,0,0.2) 0%, 
+          rgba(0,0,0,0.4) 50%, 
+          rgba(0,0,0,0.9) 100%
+        );
+        transition: opacity 0.3s ease;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 600px;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+      .hero-content .year {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      }
+      .play-button {
+        background: var(--accent);
+        color: var(--text-primary);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+      }
+      .play-button:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+      }
+      .content-section {
+        padding: 2rem 5%;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.8s ease forwards 0.3s;
+      }
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--accent);
+        border-radius: 2px;
+      }
+      .seasons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+      .season-card {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        aspect-ratio: 16/9;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+      .season-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      }
+      .season-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      .season-card:hover img {
+        transform: scale(1.1);
+      }
+      .season-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        color: var(--text-primary);
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+      .season-card:hover .season-info {
+        transform: translateY(0);
+      }
+      .season-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .season-info p {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+      .details-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      .about-section {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+      .about-section h3 {
+        color: var(--accent);
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+      }
+      .about-section p {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+      .info-section {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+      .info-section h3 {
+        color: var(--accent);
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+      }
+      .info-item {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .info-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .info-item strong {
+        color: var(--text-primary);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .info-item span {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+      .video-player {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.95);
+        z-index: 2000;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .video-player.active {
+        display: block;
+        opacity: 1;
+      }
+      .video-player iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      .close-video {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--accent);
+        color: var(--text-primary);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 2001;
+        transition: all 0.3s ease;
+        font-size: 1.5rem;
+      }
+      .close-video:hover {
+        background: var(--accent-hover);
+        transform: rotate(90deg);
+      }
+      footer {
+        text-align: center;
+        padding: 2rem 0;
+        color: var(--text-secondary);
+        background: rgba(0, 0, 0, 0.5);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100vw;
+        margin: 0;
+      }
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 0 20px;
+      }
+      .creator-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .creator-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+      .creator-details h3 {
+        color: var(--text-primary);
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+      .creator-details p {
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+      }
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+      .social-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0.8rem;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+      .social-link:hover {
+        background: var(--accent);
+        color: var(--text-primary);
+        transform: translateY(-2px);
+      }
+      .social-link img {
+        width: 16px;
+        height: 16px;
+      }
+      @media (max-width: 768px) {
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+          padding: 0 15px;
+        }
+        .creator-info {
+          flex-direction: column;
+        }
+        .social-links {
+          justify-content: center;
+        }
+        header {
+          padding: 1rem;
+        }
+        header .logo {
+          font-size: 1.5rem;
+        }
+        header nav {
+          gap: 0.5rem;
+        }
+        header nav a {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
+        .back-link {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
+        .container {
+          padding: 0 15px;
+          margin-top: 80px;
+        }
+        .hero-section {
+          padding: 1rem;
+        }
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+        .hero-content p {
+          font-size: 1rem;
+        }
+        .content-section {
+          padding: 1rem;
+        }
+        .section-title {
+          font-size: 1.5rem;
+        }
+        .season-card {
+          padding: 0.8rem;
+        }
+        .season-card h3 {
+          font-size: 1rem;
+        }
+        .season-card p {
+          font-size: 0.8rem;
+        }
+        .details-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        .about-section, .info-section {
+          padding: 1.5rem;
+        }
+        .video-player {
+          position: fixed;
+          width: 100vw;
+          height: 100vh;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 9999;
+        }
+        .video-player iframe {
+          width: 100vw;
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+        .close-video {
+          top: 10px;
+          right: 10px;
+          width: 35px;
+          height: 35px;
+          font-size: 1.2rem;
+        }
+      }
+      .credits-section {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 2rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: auto;
+      }
+      .credits-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 0 20px;
+      }
+      .creator-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .creator-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+      .creator-details h3 {
+        color: var(--text-primary);
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+      .creator-details p {
+        color: var(--text-secondary);
+        font-size: 0.8rem;
+      }
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+      .social-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0.8rem;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+      .social-link:hover {
+        background: var(--accent);
+        color: var(--text-primary);
+        transform: translateY(-2px);
+      }
+      .social-link img {
+        width: 16px;
+        height: 16px;
+      }
+      .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-gradient);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 3000;
+      }
+      .loading::after {
+        content: '';
+        width: 50px;
+        height: 50px;
+        border: 3px solid var(--accent);
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading" id="loadingScreen" style="display: none;"></div>
+    <header role="banner">
+      <div class="logo">Syncrin</div>
+      <nav>
+        <a href="about.html">About</a>
+      </nav>
+      <a class="back-link" href="index.html" role="link">← Back to Home</a>
+    </header>
+    <div class="flex-wrapper">
+      <div class="container" role="main">
+        <div class="hero-section" id="heroSection">
+          <div class="hero-content">
+            <h1 id="movieTitle">Rich Dad, Poor Dad with Robert Kiyosaki</h1>
+            <div class="year" id="movieYear">2001 | 90 min</div>
+            <a href="#" class="play-button" id="playButton">
+              <span>▶</span> Play Now
+            </a>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <div id="seasonsSection" style="display: none;">
+            <h2 class="section-title">Seasons</h2>
+            <div class="seasons-grid" id="seasonsGrid"></div>
+          </div>
+
+          <div class="details-grid">
+            <div class="about-section">
+              <h3>About</h3>
+            <p id="moviePlot">Personal-finance author and lecturer Robert T. Kiyosaki shares his strategies for creating wealth. During the program, he explores the myth that a high income is necessary for wealth, challenges the belief that a house is an asset, defines an asset versus a liability, and explains what kids need to know about money for future financial success.</p>
+            </div>
+            <div class="info-section">
+              <h3>Details</h3>
+              <div class="info-item">
+                <strong>Genre</strong>
+                <span id="movieGenre">Talk-Show</span>
+              </div>
+              <div class="info-item">
+                <strong>Director</strong>
+                <span id="movieDirector">Frank Zamacona</span>
+              </div>
+              <div class="info-item">
+                <strong>Cast</strong>
+                <span id="movieActors">Robert Kiyosaki, Kim Kiyosaki</span>
+              </div>
+              <div class="info-item">
+                <strong>IMDB Rating</strong>
+                <span id="movieRating">8.6</span>
+              </div>
+              <div class="info-item">
+                <strong>Release Date</strong>
+                <span id="movieReleased">01 Nov 2001</span>
+              </div>
+              <div class="info-item">
+                <strong>Language</strong>
+                <span id="movieLanguage">English</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-player" id="videoPlayer">
+          <div class="close-video">×</div>
+          <iframe id="videoEmbed" src="https://vidsrc.cc/v2/embed/movie/tt1372292" allowfullscreen="" title="Video Player"></iframe>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-content">
+          <div class="creator-info">
+            <div class="creator-avatar">H</div>
+            <div class="creator-details">
+              <h3>Hardik Joshi</h3>
+              <p>Creator &amp; Developer</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://instagram.com/hardik_joshi14" target="_blank" rel="noopener" class="social-link">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+              @hardik_joshi14
+            </a>
+            <a href="https://hardikjoshi.framer.website" target="_blank" rel="noopener" class="social-link">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Website">
+              My Website
+            </a>
+          </div>
+        </div>
+        <p style="margin-top: 1rem;">© 2025 Syncrin. All rights reserved.</p>
+      </footer>
+    </div>
+
+<script>
+      // Helper: Get query parameter from URL
+      function getQueryParameter(name) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(name);
+      }
+
+      // Enhanced ad blocking functionality
+      function setupAdBlocking() {
+        const videoPlayer = document.querySelector('.video-player');
+        const iframe = document.getElementById('videoEmbed');
+        
+        // Prevent iframe from navigating the top window
+        if (iframe) {
+          iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms');
+          
+          // Add event listener to prevent redirects
+          window.addEventListener('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = '';
+            return '';
+          });
+
+          // Block popups
+          window.addEventListener('click', function(e) {
+            window.onbeforeunload = null;
+          });
+
+          // Prevent window.open
+          const originalOpen = window.open;
+          window.open = function() {
+            return null;
+          };
+
+          // Add iframe load event listener
+          iframe.addEventListener('load', function() {
+            try {
+              // Try to access iframe content
+              const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+              
+              // Add event listeners to iframe document
+              iframeDoc.addEventListener('click', function(e) {
+                e.stopPropagation();
+              }, true);
+
+              // Block all anchor tags
+              const links = iframeDoc.getElementsByTagName('a');
+              for (let link of links) {
+                link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  return false;
+                });
+              }
+            } catch(e) {
+              // Cross-origin error, which is expected
+              console.log('Cross-origin frame access blocked');
+            }
+          });
+        }
+
+        // Prevent right-click
+        document.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+          return false;
+        }, false);
+
+        // Block keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+          if ((e.ctrlKey || e.metaKey) && 
+              (e.key === 'w' || e.key === 'r' || e.key === 'F5')) {
+            e.preventDefault();
+            return false;
+          }
+        });
+
+        // Prevent tab visibility changes
+        document.addEventListener('visibilitychange', function(e) {
+          if (document.hidden) {
+            e.preventDefault();
+          }
+        });
+
+        // Prevent window focus changes
+        window.addEventListener('blur', function() {
+          window.focus();
+        });
+
+        // Add MutationObserver to prevent dynamic redirects
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length) {
+              mutation.addedNodes.forEach(function(node) {
+                if (node.tagName === 'IFRAME' || node.tagName === 'A') {
+                  node.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    return false;
+                  });
+                }
+              });
+            }
+          });
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+
+        // Override history pushState and replaceState
+        const pushState = history.pushState;
+        history.pushState = function() {
+          pushState.apply(history, arguments);
+          window.dispatchEvent(new Event('pushstate'));
+        };
+
+        const replaceState = history.replaceState;
+        history.replaceState = function() {
+          replaceState.apply(history, arguments);
+          window.dispatchEvent(new Event('replacestate'));
+        };
+
+        // Prevent navigation events
+        window.addEventListener('pushstate', function(e) {
+          e.preventDefault();
+          return false;
+        });
+
+        window.addEventListener('replacestate', function(e) {
+          e.preventDefault();
+          return false;
+        });
+
+        window.addEventListener('popstate', function(e) {
+          e.preventDefault();
+          return false;
+        });
+      }
+
+      const OMDB_API_KEY = "3ece141c"; // Replace with your API key if needed
+      const imdbID = getQueryParameter("imdbID");
+      const typeParam = getQueryParameter("type"); // "movie" or "series"
+
+      const movieTitleEl = document.getElementById("movieTitle");
+      const movieYearEl = document.getElementById("movieYear");
+      const moviePlotEl = document.getElementById("moviePlot");
+      const movieGenreEl = document.getElementById("movieGenre");
+      const movieDirectorEl = document.getElementById("movieDirector");
+      const movieActorsEl = document.getElementById("movieActors");
+      const movieRatingEl = document.getElementById("movieRating");
+      const extraDetailsEl = document.getElementById("extraDetails");
+      const videoEmbed = document.getElementById("videoEmbed");
+      const tvControls = document.getElementById("tvControls");
+      const seasonSelect = document.getElementById("seasonSelect");
+      const episodeSelect = document.getElementById("episodeSelect");
+      const loadEpisodeBtn = document.getElementById("loadEpisodeBtn");
+      const heroSection = document.getElementById('heroSection');
+      const playButton = document.getElementById('playButton');
+      const videoPlayer = document.getElementById('videoPlayer');
+      const closeVideo = document.querySelector('.close-video');
+      const seasonsSection = document.getElementById('seasonsSection');
+      const seasonsGrid = document.getElementById('seasonsGrid');
+      const loadingScreen = document.getElementById('loadingScreen');
+
+      if (!imdbID) {
+        document.body.innerHTML = "<p>No movie selected.</p>";
+      } else {
+        fetch(
+          `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${imdbID}&plot=full`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.Response === "True") {
+              document.title = `${data.Title} - Syncrin`;
+              movieTitleEl.textContent = data.Title;
+              movieYearEl.textContent = data.Year + (data.Runtime ? " | " + data.Runtime : "");
+              moviePlotEl.textContent = data.Plot;
+              movieGenreEl.textContent = data.Genre;
+              movieDirectorEl.textContent = data.Director;
+              movieActorsEl.textContent = data.Actors;
+              movieRatingEl.textContent = data.imdbRating;
+              document.getElementById('movieReleased').textContent = data.Released;
+              document.getElementById('movieLanguage').textContent = data.Language;
+
+              // Update hero background
+              if (data.Poster !== "N/A") {
+                const img = new Image();
+                img.onload = () => {
+                  updateHeroBackground(data.Poster);
+                  loadingScreen.style.display = 'none';
+                };
+                img.src = data.Poster;
+              } else {
+                loadingScreen.style.display = 'none';
+              }
+
+              // Handle series seasons
+              if (data.Type === "series" || typeParam === "series") {
+                seasonsSection.style.display = 'block';
+                if (data.totalSeasons) {
+                  populateSeasons(data.totalSeasons);
+                }
+                videoEmbed.src = `https://vidsrc.cc/v2/embed/tv/${imdbID}`;
+              } else {
+                videoEmbed.src = `https://vidsrc.cc/v2/embed/movie/${imdbID}`;
+              }
+            } else {
+              document.getElementById("detailsSection").innerHTML =
+                "<p>Movie details not found.</p>";
+              loadingScreen.style.display = 'none';
+            }
+          })
+          .catch((err) => {
+            console.error(err);
+            document.getElementById("detailsSection").innerHTML =
+              "<p>Error loading details.</p>";
+            loadingScreen.style.display = 'none';
+          });
+      }
+
+      function populateSeasons(totalSeasons) {
+        seasonsGrid.innerHTML = '';
+        for (let i = 1; i <= totalSeasons; i++) {
+          const seasonCard = document.createElement('div');
+          seasonCard.className = 'season-card';
+          seasonCard.innerHTML = `
+            <img src="https://via.placeholder.com/300x169?text=Season+${i}" alt="Season ${i}">
+            <div class="season-info">
+              <h3>Season ${i}</h3>
+              <p>${i} Episodes</p>
+            </div>
+          `;
+          seasonCard.addEventListener('click', () => {
+            videoEmbed.src = `https://vidsrc.cc/v2/embed/tv/${imdbID}/${i}/1`;
+            videoPlayer.classList.add('active');
+            setupAdBlocking();
+          });
+          seasonsGrid.appendChild(seasonCard);
+        }
+      }
+
+      // Update hero section background with fade effect
+      function updateHeroBackground(posterUrl) {
+        const tempImg = new Image();
+        tempImg.onload = () => {
+          heroSection.style.backgroundImage = `url(${posterUrl})`;
+          heroSection.style.opacity = '1';
+        };
+        tempImg.src = posterUrl;
+      }
+
+      // Handle play button click with fade effect
+      playButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        videoPlayer.style.display = 'block';
+        setTimeout(() => {
+          videoPlayer.classList.add('active');
+        }, 10);
+        setupAdBlocking();
+      });
+
+      // Handle close video with fade effect
+      closeVideo.addEventListener('click', () => {
+        videoPlayer.classList.remove('active');
+        // Clear the iframe source when closing
+        videoEmbed.src = '';
+        setTimeout(() => {
+          videoPlayer.style.display = 'none';
+        }, 300);
+      });
+
+      // Handle escape key to close video
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoPlayer.classList.contains('active')) {
+          closeVideo.click();
+        }
+      });
+    </script>
+    <body>
+        <div class="loading" id="loadingScreen" style="display: none;"></div>
+        <header role="banner">
+          <div class="logo">Syncrin</div>
+          <nav>
+            <a href="about.html">About</a>
+          </nav>
+          <a class="back-link" href="index.html" role="link">← Back to Home</a>
+        </header>
+        <div class="flex-wrapper">
+          <div class="container" role="main">
+            <div class="hero-section" id="heroSection">
+              <div class="hero-content">
+                <h1 id="movieTitle">Rich Dad, Poor Dad with Robert Kiyosaki</h1>
+                <div class="year" id="movieYear">2001 | 90 min</div>
+                <a href="#" class="play-button" id="playButton">
+                  <span>▶</span> Play Now
+                </a>
+              </div>
+            </div>
+    
+            <div class="content-section">
+              <div id="seasonsSection" style="display: none;">
+                <h2 class="section-title">Seasons</h2>
+                <div class="seasons-grid" id="seasonsGrid"></div>
+              </div>
+    
+              <div class="details-grid">
+                <div class="about-section">
+                  <h3>About</h3>
+                <p id="moviePlot">Personal-finance author and lecturer Robert T. Kiyosaki shares his strategies for creating wealth. During the program, he explores the myth that a high income is necessary for wealth, challenges the belief that a house is an asset, defines an asset versus a liability, and explains what kids need to know about money for future financial success.</p>
+                </div>
+                <div class="info-section">
+                  <h3>Details</h3>
+                  <div class="info-item">
+                    <strong>Genre</strong>
+                    <span id="movieGenre">Talk-Show</span>
+                  </div>
+                  <div class="info-item">
+                    <strong>Director</strong>
+                    <span id="movieDirector">Frank Zamacona</span>
+                  </div>
+                  <div class="info-item">
+                    <strong>Cast</strong>
+                    <span id="movieActors">Robert Kiyosaki, Kim Kiyosaki</span>
+                  </div>
+                  <div class="info-item">
+                    <strong>IMDB Rating</strong>
+                    <span id="movieRating">8.6</span>
+                  </div>
+                  <div class="info-item">
+                    <strong>Release Date</strong>
+                    <span id="movieReleased">01 Nov 2001</span>
+                  </div>
+                  <div class="info-item">
+                    <strong>Language</strong>
+                    <span id="movieLanguage">English</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <div class="video-player" id="videoPlayer">
+              <div class="close-video">×</div>
+              <iframe id="videoEmbed" src="https://vidsrc.cc/v2/embed/movie/tt1372292" allowfullscreen="" title="Video Player"></iframe>
+            </div>
+          </div>
+    
+          <footer>
+            <div class="footer-content">
+              <div class="creator-info">
+                <div class="creator-avatar">H</div>
+                <div class="creator-details">
+                  <h3>Hardik Joshi</h3>
+                  <p>Creator &amp; Developer</p>
+                </div>
+              </div>
+              <div class="social-links">
+                <a href="https://instagram.com/hardik_joshi14" target="_blank" rel="noopener" class="social-link">
+                  <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+                  @hardik_joshi14
+                </a>
+                <a href="https://hardikjoshi.framer.website" target="_blank" rel="noopener" class="social-link">
+                  <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Website">
+                  My Website
+                </a>
+              </div>
+            </div>
+            <p style="margin-top: 1rem;">© 2025 Syncrin. All rights reserved.</p>
+          </footer>
+        </div>
+    
+    <script>
+          // Helper: Get query parameter from URL
+          function getQueryParameter(name) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(name);
+          }
+    
+          // Enhanced ad blocking functionality
+          function setupAdBlocking() {
+            const videoPlayer = document.querySelector('.video-player');
+            const iframe = document.getElementById('videoEmbed');
+            
+            // Prevent iframe from navigating the top window
+            if (iframe) {
+              iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms');
+              
+              // Add event listener to prevent redirects
+              window.addEventListener('beforeunload', function(e) {
+                e.preventDefault();
+                e.returnValue = '';
+                return '';
+              });
+    
+              // Block popups
+              window.addEventListener('click', function(e) {
+                window.onbeforeunload = null;
+              });
+    
+              // Prevent window.open
+              const originalOpen = window.open;
+              window.open = function() {
+                return null;
+              };
+    
+              // Add iframe load event listener
+              iframe.addEventListener('load', function() {
+                try {
+                  // Try to access iframe content
+                  const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                  
+                  // Add event listeners to iframe document
+                  iframeDoc.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                  }, true);
+    
+                  // Block all anchor tags
+                  const links = iframeDoc.getElementsByTagName('a');
+                  for (let link of links) {
+                    link.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      return false;
+                    });
+                  }
+                } catch(e) {
+                  // Cross-origin error, which is expected
+                  console.log('Cross-origin frame access blocked');
+                }
+              });
+            }
+    
+            // Prevent right-click
+            document.addEventListener('contextmenu', function(e) {
+              e.preventDefault();
+              return false;
+            }, false);
+    
+            // Block keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+              if ((e.ctrlKey || e.metaKey) && 
+                  (e.key === 'w' || e.key === 'r' || e.key === 'F5')) {
+                e.preventDefault();
+                return false;
+              }
+            });
+    
+            // Prevent tab visibility changes
+            document.addEventListener('visibilitychange', function(e) {
+              if (document.hidden) {
+                e.preventDefault();
+              }
+            });
+    
+            // Prevent window focus changes
+            window.addEventListener('blur', function() {
+              window.focus();
+            });
+    
+            // Add MutationObserver to prevent dynamic redirects
+            const observer = new MutationObserver(function(mutations) {
+              mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length) {
+                  mutation.addedNodes.forEach(function(node) {
+                    if (node.tagName === 'IFRAME' || node.tagName === 'A') {
+                      node.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        return false;
+                      });
+                    }
+                  });
+                }
+              });
+            });
+    
+            observer.observe(document.body, {
+              childList: true,
+              subtree: true
+            });
+    
+            // Override history pushState and replaceState
+            const pushState = history.pushState;
+            history.pushState = function() {
+              pushState.apply(history, arguments);
+              window.dispatchEvent(new Event('pushstate'));
+            };
+    
+            const replaceState = history.replaceState;
+            history.replaceState = function() {
+              replaceState.apply(history, arguments);
+              window.dispatchEvent(new Event('replacestate'));
+            };
+    
+            // Prevent navigation events
+            window.addEventListener('pushstate', function(e) {
+              e.preventDefault();
+              return false;
+            });
+    
+            window.addEventListener('replacestate', function(e) {
+              e.preventDefault();
+              return false;
+            });
+    
+            window.addEventListener('popstate', function(e) {
+              e.preventDefault();
+              return false;
+            });
+          }
+    
+          const OMDB_API_KEY = "3ece141c"; // Replace with your API key if needed
+          const imdbID = getQueryParameter("imdbID");
+          const typeParam = getQueryParameter("type"); // "movie" or "series"
+    
+          const movieTitleEl = document.getElementById("movieTitle");
+          const movieYearEl = document.getElementById("movieYear");
+          const moviePlotEl = document.getElementById("moviePlot");
+          const movieGenreEl = document.getElementById("movieGenre");
+          const movieDirectorEl = document.getElementById("movieDirector");
+          const movieActorsEl = document.getElementById("movieActors");
+          const movieRatingEl = document.getElementById("movieRating");
+          const extraDetailsEl = document.getElementById("extraDetails");
+          const videoEmbed = document.getElementById("videoEmbed");
+          const tvControls = document.getElementById("tvControls");
+          const seasonSelect = document.getElementById("seasonSelect");
+          const episodeSelect = document.getElementById("episodeSelect");
+          const loadEpisodeBtn = document.getElementById("loadEpisodeBtn");
+          const heroSection = document.getElementById('heroSection');
+          const playButton = document.getElementById('playButton');
+          const videoPlayer = document.getElementById('videoPlayer');
+          const closeVideo = document.querySelector('.close-video');
+          const seasonsSection = document.getElementById('seasonsSection');
+          const seasonsGrid = document.getElementById('seasonsGrid');
+          const loadingScreen = document.getElementById('loadingScreen');
+    
+          if (!imdbID) {
+            document.body.innerHTML = "<p>No movie selected.</p>";
+          } else {
+            fetch(
+              `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${imdbID}&plot=full`
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.Response === "True") {
+                  document.title = `${data.Title} - Syncrin`;
+                  movieTitleEl.textContent = data.Title;
+                  movieYearEl.textContent = data.Year + (data.Runtime ? " | " + data.Runtime : "");
+                  moviePlotEl.textContent = data.Plot;
+                  movieGenreEl.textContent = data.Genre;
+                  movieDirectorEl.textContent = data.Director;
+                  movieActorsEl.textContent = data.Actors;
+                  movieRatingEl.textContent = data.imdbRating;
+                  document.getElementById('movieReleased').textContent = data.Released;
+                  document.getElementById('movieLanguage').textContent = data.Language;
+    
+                  // Update hero background
+                  if (data.Poster !== "N/A") {
+                    const img = new Image();
+                    img.onload = () => {
+                      updateHeroBackground(data.Poster);
+                      loadingScreen.style.display = 'none';
+                    };
+                    img.src = data.Poster;
+                  } else {
+                    loadingScreen.style.display = 'none';
+                  }
+    
+                  // Handle series seasons
+                  if (data.Type === "series" || typeParam === "series") {
+                    seasonsSection.style.display = 'block';
+                    if (data.totalSeasons) {
+                      populateSeasons(data.totalSeasons);
+                    }
+                    videoEmbed.src = `https://vidsrc.cc/v2/embed/tv/${imdbID}`;
+                  } else {
+                    videoEmbed.src = `https://vidsrc.cc/v2/embed/movie/${imdbID}`;
+                  }
+                } else {
+                  document.getElementById("detailsSection").innerHTML =
+                    "<p>Movie details not found.</p>";
+                  loadingScreen.style.display = 'none';
+                }
+              })
+              .catch((err) => {
+                console.error(err);
+                document.getElementById("detailsSection").innerHTML =
+                  "<p>Error loading details.</p>";
+                loadingScreen.style.display = 'none';
+              });
+          }
+    
+          function populateSeasons(totalSeasons) {
+            seasonsGrid.innerHTML = '';
+            for (let i = 1; i <= totalSeasons; i++) {
+              const seasonCard = document.createElement('div');
+              seasonCard.className = 'season-card';
+              seasonCard.innerHTML = `
+                <img src="https://via.placeholder.com/300x169?text=Season+${i}" alt="Season ${i}">
+                <div class="season-info">
+                  <h3>Season ${i}</h3>
+                  <p>${i} Episodes</p>
+                </div>
+              `;
+              seasonCard.addEventListener('click', () => {
+                videoEmbed.src = `https://vidsrc.cc/v2/embed/tv/${imdbID}/${i}/1`;
+                videoPlayer.classList.add('active');
+                setupAdBlocking();
+              });
+              seasonsGrid.appendChild(seasonCard);
+            }
+          }
+    
+          // Update hero section background with fade effect
+          function updateHeroBackground(posterUrl) {
+            const tempImg = new Image();
+            tempImg.onload = () => {
+              heroSection.style.backgroundImage = `url(${posterUrl})`;
+              heroSection.style.opacity = '1';
+            };
+            tempImg.src = posterUrl;
+          }
+    
+          // Handle play button click with fade effect
+          playButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            videoPlayer.style.display = 'block';
+            setTimeout(() => {
+              videoPlayer.classList.add('active');
+            }, 10);
+            setupAdBlocking();
+          });
+    
+          // Handle close video with fade effect
+          closeVideo.addEventListener('click', () => {
+            videoPlayer.classList.remove('active');
+            // Clear the iframe source when closing
+            videoEmbed.src = '';
+            setTimeout(() => {
+              videoPlayer.style.display = 'none';
+            }, 300);
+          });
+    
+          // Handle escape key to close video
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoPlayer.classList.contains('active')) {
+              closeVideo.click();
+            }
+          });
+        </script>
+      
+    
+    
+    </body>
+  </html>
